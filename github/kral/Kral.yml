@@ -23,7 +23,7 @@ jobs:
     - name: Regdit'ten RDP Mülküne İzin Veriliyor!
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
     - name: Kullanıcı Atanıyor!
-      run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "Windows2019" -Force)
+      run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "Kastamonu37" -Force)
     - name: Tünel Oluşturuluyor!
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 3389"'
     - name: Zaman Aşımı Komut Dosyasını İndiriliyor!
