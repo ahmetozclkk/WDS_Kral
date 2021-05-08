@@ -41,5 +41,6 @@ jobs:
     - name: RDP 2core-7GB Ram'inize bağlanın.
       run: cmd /c NGROK-CHECK.bat
     - name: Hepsi tamam! Şimdi Tab'ı kapatabilirsiniz! Maksimum sanal makine süresi: 6 saat.
-      run: cmd /c loop.bat 
+      run: cmd /c loop.bat
       
+    
