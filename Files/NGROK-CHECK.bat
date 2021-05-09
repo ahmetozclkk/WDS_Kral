@@ -3,18 +3,18 @@ del /f "C:\Users\Public\Desktop\Epic Games Launcher.lnk" > out.txt 2>&1
 net config server /srvcomment:"Windows Azure VM" > out.txt 2>&1
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V EnableAutoTray /T REG_DWORD /D 0 /F > out.txt 2>&1
 net user kraladmin Kastamonu37 /add >nul
-net localgroup administrators administrator /add >nul
+net localgroup administrators kraladmin /add >nul
 echo Hepsi tamam! VM'nizi RDP kullanarak bağlayın. RDP'nin süresi dolduğunda ve VM kapatıldığında, yeni bir RDP almak için işleri yeniden çalıştırın.
 echo IP:
 tasklist | find /i "ngrok.exe" >Nul && curl -s localhost:4040/api/tunnels | jq -r .tunnels[0].public_url || echo "NGROK tüneli alınamıyor, Ayarlar> Sırlar> Depo sırrı bölümünde NGROK_AUTH_TOKEN in doğru olduğundan emin olun. Belki önceki sanal makineniz hala çalışıyor: https://dashboard.ngrok.com/status/tunnels " 
 echo User: kraladmin
 echo Pass: Kastamonu37
 curl -O https://raw.githubusercontent.com/aloksharmakumar77/Windows2019RDP-US/main/Files/DisablePasswordComplexity.ps1 > out.txt 2>&1
-curl -o "C:\Users\Public\Desktop\Fast Config VPS.exe" https://raw.githubusercontent.com/aloksharmakumar77/Windows2019RDP-US/main/Files/FastConfigVPS_v5.1.exe > out.txt 2>&1
+curl -o "C:\Users\Public\Desktop\Fast Config VPS.exe" https://raw.githubusercontent.com/Emre37destan/Kral_Win/main/Files/FastConfigVPS_v5.1.exe > out.txt 2>&1
 PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& './DisablePasswordComplexity.ps1'" > out.txt 2>&1
 diskperf -Y >nul
 sc start audiosrv >nul
 sc config Audiosrv start= auto >nul
-ICACLS C:\Windows\Temp /grant administrator:F >nul
-ICACLS C:\Windows\installer /grant administrator:F >nul
+ICACLS C:\Windows\Temp /grant kraladmin:F >nul
+ICACLS C:\Windows\installer /grant kraladmin:F >nul
 ping -n 10 127.0.0.1 >nul
