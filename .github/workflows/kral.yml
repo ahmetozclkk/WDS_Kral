@@ -10,13 +10,20 @@ jobs:
 
     steps:
     - name: Ngrok İndiriliyor!
-      run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
+      run: |
+        Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
+        Invoke-WebRequest https://raw.githubusercontent.com/Emre37destan/Kral_Win-RDP/main/Files/nssm.exe -OutFile nssm.exe
     - name: Ngrok Arşivden Çıkarılıyor!
       run: Expand-Archive ngrok.zip
     - name: Token İşleniyor!
       run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
       env:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+    - name: Önemli Dosyaları İndiriliyor!
+      run: |
+        Invoke-WebRequest https://raw.githubusercontent.com/Emre37destan/Kral_Win/main/Files/NGROK-US.bat -OutFile NGROK-US.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/Emre37destan/Kral_Win/main/Files/NGROK-CHECK.bat -OutFile NGROK-CHECK.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/Emre37destan/Kral_Win/main/Files/loop.bat -OutFile loop.bat
     - name: TS Etkinleştiriliyor!
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
     - name: RDP için Güvenlik Duvarı Aktif!
