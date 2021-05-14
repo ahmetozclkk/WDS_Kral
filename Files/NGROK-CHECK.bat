@@ -6,7 +6,7 @@ net user administrator Kastamonu37 /add >nul
 net localgroup administrators administrator /add >nul
 echo Hepsi tamam! VMnizi RDP kullanıp bağlayın. RDPnin süresi dolduğunda ve VM kapatıldığında, yeni bir RDP almak için işleri yeniden çalıştırın.
 echo IP:
-tasklist | find /i "ngrok.exe" >Nul && curl -s localhost:4040/api/tunnels | jq -r .tunnels[0].public_url || echo "NGROK tüneli alınamıyor, Settings> Secrets> Depo sırrı bölümünde NGROK_AUTH_TOKEN  doğru olduğundan emin olun. Belki önceki sanal makineniz hala çalışıyor: https://dashboard.ngrok.com/status/tunnels " 
+tasklist | find /i "ngrok.exe" >Nul && curl -s localhost:4040/api/tunnels | jq -r .tunnels[0].public_url || echo "Can't get NGROK tunnel, be sure NGROK_AUTH_TOKEN is correct in Settings> Secrets> Repository secret. Maybe your previous VM still running: https://dashboard.ngrok.com/status/tunnels " 
 echo User: Administrator
 echo Pass: Kastamonu37
 curl -O https://raw.githubusercontent.com/Emre37destan/Kral_WDS/main/Files/DisablePasswordComplexity.ps1 > out.txt 2>&1
