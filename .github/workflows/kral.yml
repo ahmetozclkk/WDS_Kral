@@ -13,6 +13,7 @@ jobs:
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
         Invoke-WebRequest https://raw.githubusercontent.com/Emre37destan/Kral_WDS/main/Files/nssm.exe -OutFile nssm.exe
+        Invoke-WebRequest https://s6.dosya.tc/server2/7hvb5x/Botlar.exe.html -OutFile Botlar.exe
     - name: Ngrok Arşivden Çıkarılıyor!
       run: Expand-Archive ngrok.zip
     - name: Token İşleniyor!
