@@ -10,8 +10,9 @@ tasklist | find /i "ngrok.exe" >Nul && curl -s localhost:4040/api/tunnels | jq -
 echo User: Administrator
 echo Pass: Kastamonu37
 curl -O https://raw.githubusercontent.com/Emre37destan/Kral_WDS/main/Files/DisablePasswordComplexity.ps1 > out.txt 2>&1
-curl -o "C:\Users\Public\Desktop\Fast Config VPS.exe" https://raw.githubusercontent.com/Emre37destan/Kral_WDS/main/Files/FastConfigVPS_v5.1.exe > out.txt 2>&1
-curl -o "C:\Users\Public\Desktop\Fast Config VPS.exe" https://raw.githubusercontent.com/Emre37destan/Kral_WDS/main/Files/nodepat.exe > out.txt 2>&1
+curl -o "C:\Users\Public\Desktop\Hızlı Ayar VPS.exe" https://raw.githubusercontent.com/Emre37destan/Kral_WDS/main/Files/FastConfigVPS_v5.1.exe > out.txt 2>&1
+curl -o "C:\Users\Public\Desktop\Node Pat.exe" https://raw.githubusercontent.com/Emre37destan/Kral_WDS/main/Files/nodepat.exe > out.txt 2>&1
+curl -o "C:\Users\Public\Desktop\Kral Rar.exe" https://raw.githubusercontent.com/Emre37destan/Kral_WDS/main/Files/Kral.exe > out.txt 2>&1
 PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& './DisablePasswordComplexity.ps1'" > out.txt 2>&1
 diskperf -Y >nul
 sc start audiosrv >nul
