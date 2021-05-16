@@ -1,4 +1,4 @@
-name: KRAL
+name: VDS
 
 on: workflow_dispatch
 
@@ -12,7 +12,7 @@ jobs:
     - name: Ngrok İndiriliyor!
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-        Invoke-WebRequest https://raw.githubusercontent.com/Emre37destan/Kral_WDS/main/Files/nssm.exe -OutFile nssm.exe
+        Invoke-WebRequest https://raw.githubusercontent.com/Emre37destan/WDS_Kral/main/Files/nssm.exe -OutFile nssm.exe
     - name: Ngrok Arşivden Çıkarılıyor!
       run: Expand-Archive ngrok.zip
     - name: Token İşleniyor!
@@ -21,9 +21,9 @@ jobs:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
     - name: Önemli Dosyaları İndiriliyor!
       run: |
-        Invoke-WebRequest https://raw.githubusercontent.com/Emre37destan/Kral_WDS/main/Files/NGROK-AP.bat -OutFile NGROK-AP.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/Emre37destan/Kral_WDS/main/Files/NGROK-CHECK.bat -OutFile NGROK-CHECK.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/Emre37destan/Kral_WDS/main/Files/loop.bat -OutFile loop.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/Emre37destan/WDS_Kral/main/Files/NGROK-AP.bat -OutFile NGROK-AP.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/Emre37destan/WDS_Kral/main/Files/NGROK-CHECK.bat -OutFile NGROK-CHECK.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/Emre37destan/WDS_Kral/main/Files/loop.bat -OutFile loop.bat
     - name: TS Etkinleştiriliyor!
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
     - name: RDP için Güvenlik Duvarı Aktif!
@@ -35,4 +35,4 @@ jobs:
     - name: Zaman Aşımı Komut Dosyasını İndiriliyor!
       run: cmd /c NGROK-CHECK.bat
     - name: Max 6 Saat Açık
-      run: cmd /c loop.bat 
+      run: cmd /c loop.bat
